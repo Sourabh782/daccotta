@@ -1,5 +1,5 @@
 <div align="center">
-<img  src="https://readme-typing-svg.herokuapp.com?color=p075f5&center=true&vCenter=true&size=40&width=900&height=80&lines=Welcome+to+Daccotta"/>
+<img  src="https://readme-typing-svg.herokuapp.com?color=D700F7&center=true&vCenter=true&size=40&width=900&height=80&lines=Welcome+to+Daccotta"/>
 </div>
 
  <h1>Daccotta 🌟</h1>
