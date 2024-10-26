@@ -54,6 +54,7 @@ const JournalPage: React.FC = () => {
 
     const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false)
     const [entryToDelete, setEntryToDelete] = useState<string | null>(null)
+    const [filterDate, setFilterDate] = useState<Date | undefined>(undefined)
 
     const handleDeleteEntry = async () => {
         if (!entryToDelete) return
@@ -161,25 +162,40 @@ const JournalPage: React.FC = () => {
     }
 
     const sortedEntries = useMemo(() => {
-        if (!journalEntries) return []
-
-        const sorted = [...journalEntries].sort(
+        if (!journalEntries) return [];
+    
+        const selectedMonth = filterDate ? filterDate.getMonth() : null;
+        const selectedYear = filterDate ? filterDate.getFullYear() : null;
+    
+        const filteredEntries = journalEntries.filter(entry => {
+            const watchedDate = new Date(entry.dateWatched);
+            const entryMonth = watchedDate.getMonth();
+            const entryYear = watchedDate.getFullYear();
+            
+            return (
+                (selectedMonth === null || entryMonth === selectedMonth) &&
+                (selectedYear === null || entryYear === selectedYear)
+            );
+        });
+    
+        const sorted = [...filteredEntries].sort(
             (a, b) =>
                 new Date(b.dateWatched).getTime() -
                 new Date(a.dateWatched).getTime()
-        )
-
-        const groupedByMonth: { [key: string]: typeof journalEntries } = {}
+        );
+    
+        const groupedByMonth = {};
         sorted.forEach((entry) => {
-            const monthYear = format(new Date(entry.dateWatched), "MMMM yyyy")
+            const monthYear = format(new Date(entry.dateWatched), "MMMM yyyy");
             if (!groupedByMonth[monthYear]) {
-                groupedByMonth[monthYear] = []
+                groupedByMonth[monthYear] = [];
             }
-            groupedByMonth[monthYear].push(entry)
-        })
-
-        return groupedByMonth
-    }, [journalEntries])
+            groupedByMonth[monthYear].push(entry);
+        });
+    
+        return groupedByMonth;
+    }, [journalEntries, filterDate]);
+    
 
     if (isLoading) {
         return (
@@ -197,6 +213,48 @@ const JournalPage: React.FC = () => {
             <div className="max-w-6xl mx-auto">
                 <div className="flex justify-between w-full items-center mb-6">
                     <h1 className="text-4xl font-bold">My Movie Journal</h1>
+                    <div className="flex items-center">
+                    <Popover>
+                        <PopoverTrigger asChild>
+                            <div className="flex items-center p-2">      
+                                <Button
+                                    variant="outline"
+                                    className={cn(
+                                        "w-full justify-start text-left font-normal",
+                                        !filterDate && "text-muted-foreground"
+                                    )}
+                                >
+                                    <CalendarIcon className="mr-2 h-4 w-4" />
+                                    {filterDate ? (
+                                        format(filterDate, "MMMM yyyy")
+                                    ) : (
+                                        <span>Filter by month</span>
+                                    )}
+                                </Button>
+                            </div>
+                        </PopoverTrigger>
+                        <PopoverContent className="w-68 p-0" align="start">
+                            <div className="flex flex-col p-4">
+                                <Calendar
+                                    mode="single"
+                                    selected={filterDate}
+                                    onSelect={(date) => {
+                                        setFilterDate(date);
+                                    }}
+                                    initialFocus
+                                />
+                                <Button
+                                    variant="outline"
+                                    onClick={() => setFilterDate(undefined)}
+                                    className="mt-2 w-full text-red-500"
+                                >
+                                    Clear
+                                </Button>
+                            </div>
+                        </PopoverContent>
+                    </Popover>
+
+                    
                     <Dialog
                         open={isAddingEntry}
                         onOpenChange={setIsAddingEntry}
@@ -357,6 +415,7 @@ const JournalPage: React.FC = () => {
                             </div>
                         </DialogContent>
                     </Dialog>
+                    </div>
                 </div>
                 {Object.entries(sortedEntries).map(([monthYear, entries]) => (
                     <div key={monthYear} className="mb-8">
