@@ -1,8 +1,8 @@
 <div align="center">
-<img  src="https://readme-typing-svg.herokuapp.com?color=45ffaa&center=true&vCenter=true&size=40&width=900&height=80&lines=Welcome+to+Daccotta"/>
+<img  src="https://readme-typing-svg.herokuapp.com?color=p075f5&center=true&vCenter=true&size=40&width=900&height=80&lines=Welcome+to+Daccotta"/>
 </div>
 
-# <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Bomb.png" alt="Bomb" width="40" height="40" /> **Daccotta** 🌟
+ <h1>Daccotta 🌟</h1>
 
 **A Social Network for Movie Lovers**
 
