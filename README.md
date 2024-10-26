@@ -1,4 +1,8 @@
-# 🌟 **Daccotta** 🌟
+<div align="center">
+<img  src="https://readme-typing-svg.herokuapp.com?color=D700F7&center=true&vCenter=true&size=40&width=900&height=80&lines=Welcome+to+Daccotta"/>
+</div>
+
+ <h1>Daccotta 🌟</h1>
 
 **A Social Network for Movie Lovers**
 
@@ -33,7 +37,7 @@ also be a part of the community and join our [discord](https://discord.gg/R859pe
 
 <img src="https://raw.githubusercontent.com/alo7lika/daccotta/refs/heads/dev/Images/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
 
-### This project is now OFFICIALLY accepted for
+### This project is now OFFICIALLY accepted for <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Heart%20on%20Fire.png" alt="Heart on Fire" width="40" height="40" />
 
 <div align="center">
   <img src="https://raw.githubusercontent.com/alo7lika/daccotta/refs/heads/dev/Images/329829127-e79eb6de-81b1-4ffb-b6ed-f018bb977e88.png" alt="GSSoC 2024 Extd" width="80%">
@@ -119,7 +123,7 @@ To set up and run **Daccotta** locally, follow the steps below:
     cd daccotta
     ```
 
-### Installing Bun
+### <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Activities/Bullseye.png" alt="Bullseye" width="40" height="40" />Installing Bun
 
 **Bun** is a fast all-in-one JavaScript runtime we use to manage both the frontend and backend. You'll need to install Bun before proceeding with any setup.
 
@@ -281,13 +285,27 @@ refer to .env.example files for env variables
 
 </div>
 
-## 🤝 Contributing
+## <img src="https://user-images.githubusercontent.com/74038190/216120981-b9507c36-0e04-4469-8e27-c99271b45ba5.png" width="40" height="40" /> Contributing
 
 We'd love your help to make **Daccotta** even better! If you're interested in contributing, please read [CONTRIBUTION GUIDE](./CONTRIBUTING.md).
 
 ---
 
-## 📧 Contact
+## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/People/Detective.png" alt="Detective" width="40" height="40" /> Contact
+
+### Project Admin⚡
+ 
+<table>
+<tr>
+<td align="center"><img src="https://media.licdn.com/dms/image/v2/D5603AQFp7y1ybjjkBw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1724591751024?e=1735171200&v=beta&t=rfzm248w4SajKg-hNJFpmMe87MZWKj1kf2utUHViQ2Q" width=150px height=150px /></a></br> <h4 style="color:red;">SIDDHARTH GUPTA</h4>
+ <a href="https://www.linkedin.com/in/siddharthgupta007/"><img src="https://user-images.githubusercontent.com/74038190/235294012-0a55e343-37ad-4b0f-924f-c8431d9d2483.gif" width="32px" height="32px"></img></a>
+</td>
+</tr>
+</table>
+
+
+
+
 
 Feel free to reach out to us for any queries or suggestions:
 **Email**: daccotta.pvt@gmail.com
