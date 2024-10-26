@@ -9,6 +9,26 @@
 Hey movie lovers! Welcome to **Daccotta**, a web app designed to simplify your movie-watching experience and make it easy to share your favorite films with friends. Think of us as your go-to social network for everything movies! 🎥🍿
 
 **Love it?** 👉 _Don't forget to star this repo!_ 🌟
+<table align="center">
+    <thead align="center">
+        <tr border: 2px;>
+            <td><b>🌟 Stars</b></td>
+            <td><b>🍴 Forks</b></td>
+            <td><b>🐛 Issues</b></td>
+            <td><b>🔔 Open PRs</b></td>
+            <td><b>🔕 Close PRs</b></td>
+        </tr>
+     </thead>
+    <tbody>
+      <tr>
+          <td><img alt="Stars" src="https://img.shields.io/github/stars/daccotta-org/daccotta?style=flat&logo=github"/></td>
+          <td><img alt="Forks" src="https://img.shields.io/github/forks/daccotta-org/daccotta?style=flat&logo=github"/></td>
+          <td><img alt="Issues" src="https://img.shields.io/github/issues/daccotta-org/daccotta?style=flat&logo=github"/></td>
+          <td><img alt="Open Pull Requests" src="https://img.shields.io/github/issues-pr/daccotta-org/daccotta?style=flat&logo=github"/></td>
+          <td><img alt="Closed Pull Requests" src="https://img.shields.io/github/issues-pr-closed/daccotta-org/daccotta?style=flat&color=critical&logo=github"/></td>
+      </tr>
+    </tbody>
+</table>
 
 ---
 
@@ -30,6 +50,28 @@ also be a part of the community and join our [discord](https://discord.gg/R859pe
 <br>
     
 <img src="https://raw.githubusercontent.com/alo7lika/daccotta/refs/heads/dev/Images/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
+
+
+## 📑 Table of Contents
+
+1. [🎬 What is Daccotta?](#-what-is-daccotta)
+2. [🔑 Key Features](#-key-features)
+   - [🚧 Coming Soon Features](#coming-soon)
+3. [🛠️ Tech Stack](#️-tech-stack)
+4. [🚀 Getting Started](#-getting-started)
+   - [🗂️ Setting Up Daccotta Repository](#️-setting-up-daccotta-repository)
+   - [🔧 Installing Bun](#installing-bun)
+     - [🍎 For macOS](#for-macos)
+     - [🪟 For Windows](#for-windows)
+   - [🖥️ Frontend-Only Setup](#️-frontend-only-setup)
+   - [🗂️ Setting Up Full Stack Daccotta](#️-setting-up-full-stack-daccotta-client--server)
+     - [💾 Setting Up MongoDB Atlas](#setting-up-mongodb-atlas)
+     - [🔐 Setting Up Firebase](#setting-up-firebase)
+     - [⚙️ Running the Full Stack Project](#running-the-full-stack-project)
+5. [❤️✨ Our Valuable Contributors](#our-valuable-contributors-️)
+6. [🤝 Contributing](#-contributing)
+7. [📧 Contact](#-contact)
+8. [⚠️ Attribution](#️-attribution)
 
 
 ## 🎬 What is Daccotta?
@@ -231,7 +273,17 @@ refer to .env.example files for env variables
 
 ## Our Valuable Contributors ❤️✨
 
-[![Contributors](https://contrib.rocks/image?repo=daccotta-org/daccotta)](https://github.com/daccotta-org/daccotta/graphs/contributors)
+<div align="center">
+
+| Contributor                                                                                      | Contributor                                                                                      | Contributor                                                                                      | Contributor                                                                                      |
+|--------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|
+| <img src="https://github.com/AshuKr22.png" alt="AshuKr22" width="80"/> <br> <p align="center">[AshuKr22](https://github.com/AshuKr22) 👨‍💻</p> | <img src="https://github.com/sid0000007.png" alt="Sid" width="80"/> <br> <p align="center">[Sid](https://github.com/sid0000007) 👨‍💻</p> | <img src="https://github.com/shubhagarwal1.png" alt="Shubham Agarwal" width="80"/> <br> <p align="center">[Shubham Agarwal](https://github.com/shubhagarwal1) 👨‍💻</p> | <img src="https://github.com/mehul-m-prajapati.png" alt="Mehul" width="80"/> <br> <p align="center">[Mehul](https://github.com/mehul-m-prajapati) 👨‍💻</p> |
+| <img src="https://github.com/alo7lika.png" alt="Alolika" width="80"/> <br> <p align="center">[Alolika](https://github.com/alo7lika) 👩‍💻</p> | <img src="https://github.com/daccotta.png" alt="Daccotta" width="80"/> <br> <p align="center">[Daccotta](https://github.com/daccotta) 👨‍💻</p> | <img src="https://github.com/knighthinata.png" alt="Knighthinata" width="80"/> <br> <p align="center">[Knighthinata](https://github.com/knighthinata) 👨‍💻</p> | <img src="https://github.com/Sourabh782.png" alt="Sourabh" width="80"/> <br> <p align="center">[Sourabh](https://github.com/Sourabh782) 👨‍💻</p> |
+| <img src="https://github.com/samyak-aditya.png" alt="Samyak Aditya" width="80"/> <br> <p align="center">[Samyak Aditya](https://github.com/samyak-aditya) 👨‍💻</p> | <img src="https://github.com/harshbhar0629.png" alt="Harsh Bhar" width="80"/> <br> <p align="center">[Harsh Bhar](https://github.com/harshbhar0629) 👨‍💻</p> | <img src="https://github.com/amitb0ra.png" alt="Amit Bora" width="80"/> <br> <p align="center">[Amit Bora](https://github.com/amitb0ra) 👨‍💻</p> | <img src="https://github.com/mukulkundu.png" alt="Mukul Kundu" width="80"/> <br> <p align="center">[Mukul Kundu](https://github.com/mukulkundu) 👨‍💻</p> |
+| <img src="https://github.com/mayur1377.png" alt="Mayur" width="80"/> <br> <p align="center">[Mayur](https://github.com/mayur1377) 👨‍💻</p> | <img src="https://github.com/IkkiOcean.png" alt="Ikki Ocean" width="80"/> <br> <p align="center">[Ikki Ocean](https://github.com/IkkiOcean) 👨‍💻</p> | <img src="https://github.com/Dhruv-pahuja.png" alt="Dhruv Pahuja" width="80"/> <br> <p align="center">[Dhruv Pahuja](https://github.com/Dhruv-pahuja) 👨‍💻</p> | <img src="https://github.com/say-het.png" alt="Say Het" width="80"/> <br> <p align="center">[Say Het](https://github.com/say-het) 👨‍💻</p> |
+| <img src="https://github.com/DevRish.png" alt="Dev Rish" width="80"/> <br> <p align="center">[Dev Rish](https://github.com/DevRish) 👨‍💻</p> | <img src="https://github.com/vaibhav01-git.png" alt="Vaibhav" width="80"/> <br> <p align="center">[Vaibhav](https://github.com/vaibhav01-git) 👨‍💻</p> | <img src="https://github.com/trijalkaushik.png" alt="Trijal Kaushik" width="80"/> <br> <p align="center">[Trijal Kaushik](https://github.com/trijalkaushik) 👨‍💻</p> |                                                                                      |
+
+</div>
 
 ## <img src="https://user-images.githubusercontent.com/74038190/216120981-b9507c36-0e04-4469-8e27-c99271b45ba5.png" width="40" height="40" /> Contributing
 
