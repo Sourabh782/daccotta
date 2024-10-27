@@ -79,15 +79,19 @@ const MovieDetailPage: React.FC = () => {
             )
 
             if (!favouritesList) {
+
                 const createListData = {
                     name: "Favourites",
                     description: "My favourite movies",
                     isPublic: true,
                 }
-                favouritesList = await createList(user.uid, {
+
+                let newList = await createList(user.uid, {
                     ...createListData,
                     list_type: "user",
                 })
+
+                favouritesList = newList.list;
             }
 
             if (isFavourite) {
@@ -96,7 +100,8 @@ const MovieDetailPage: React.FC = () => {
                 toast.success(
                     `${movie.title} has been removed from your Favourites.`
                 )
-            } else {
+            }
+            else {
                 const movieToAdd = {
                     id: id!,
                     movie_id: movie.id,
@@ -159,10 +164,12 @@ const MovieDetailPage: React.FC = () => {
                     description: "My WatchList",
                     isPublic: true,
                 }
-                watchList = await createList(user.uid, {
+                let newList = await createList(user.uid, {
                     ...createListData,
                     list_type: "user",
                 })
+
+                watchList = newList.list;
             }
 
             if (isInWatchList) {
