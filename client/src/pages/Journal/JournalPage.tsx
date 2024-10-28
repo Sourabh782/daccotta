@@ -228,7 +228,7 @@ const JournalPage: React.FC = () => {
                                     {filterDate ? (
                                         format(filterDate, "MMMM yyyy")
                                     ) : (
-                                        <span>Filter by month</span>
+                                        <span>Filter</span>
                                     )}
                                 </Button>
                             </div>
