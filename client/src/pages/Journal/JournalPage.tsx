@@ -26,6 +26,7 @@ import { searchMovies } from "@/services/movieService"
 import { toast } from "react-toastify"
 import { motion } from "framer-motion"
 import { useNavigate } from "react-router-dom"
+import Stars from '../../components/ui/stars'; // Adjust the path as necessary
 
 interface AxiosError {
     response?: {
@@ -51,6 +52,7 @@ const JournalPage: React.FC = () => {
     const [rewatches, setRewatches] = useState(1)
     const [isAddingEntry, setIsAddingEntry] = useState(false)
     const [hoveredEntry, setHoveredEntry] = useState<string | null>(null)
+    const [rating, setRating] = useState<number | null>(null); // State for rating
 
     const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false)
     const [entryToDelete, setEntryToDelete] = useState<string | null>(null)
@@ -183,8 +185,8 @@ const JournalPage: React.FC = () => {
                 new Date(b.dateWatched).getTime() -
                 new Date(a.dateWatched).getTime()
         );
-    
-        const groupedByMonth = {};
+
+        const groupedByMonth:any = {};
         sorted.forEach((entry) => {
             const monthYear = format(new Date(entry.dateWatched), "MMMM yyyy");
             if (!groupedByMonth[monthYear]) {
@@ -192,10 +194,10 @@ const JournalPage: React.FC = () => {
             }
             groupedByMonth[monthYear].push(entry);
         });
-    
+
         return groupedByMonth;
     }, [journalEntries, filterDate]);
-    
+
 
     if (isLoading) {
         return (
@@ -216,7 +218,7 @@ const JournalPage: React.FC = () => {
                     <div className="flex items-center">
                     <Popover>
                         <PopoverTrigger asChild>
-                            <div className="flex items-center p-2">      
+                            <div className="flex items-center p-2">
                                 <Button
                                     variant="outline"
                                     className={cn(
@@ -254,7 +256,7 @@ const JournalPage: React.FC = () => {
                         </PopoverContent>
                     </Popover>
 
-                    
+
                     <Dialog
                         open={isAddingEntry}
                         onOpenChange={setIsAddingEntry}
@@ -263,10 +265,10 @@ const JournalPage: React.FC = () => {
                             <Button
                                 size="icon"
                                 variant="outline"
-                                className="rounded-full w-10 h-10"
+                                className="rounded-full w-10 h-10 text-white"
                             >
                                 <Plus className="h-6 w-6" />
-                                <span className="sr-only text-white">
+                                <span className="sr-only">
                                     Add journal entry
                                 </span>
                             </Button>
@@ -294,7 +296,7 @@ const JournalPage: React.FC = () => {
                                                 handleSearchMovie()
                                             }}
                                             placeholder="Enter movie title"
-                                            className="flex-grow"
+                                            className="flex-grow text-white"
                                         />
                                         {/* <Button
                                             onClick={handleSearchMovie}
@@ -304,7 +306,7 @@ const JournalPage: React.FC = () => {
                                         </Button> */}
                                     </div>
                                     {searchResults.length > 0 && (
-                                        <ul className="mt-2 border rounded-md max-h-40 overflow-y-auto bg-background">
+                                        <ul className="mt-2 border rounded-md max-h-40 overflow-y-auto bg-white">
                                             {searchResults.map((movie) => (
                                                 <li
                                                     key={movie.id}
@@ -350,6 +352,10 @@ const JournalPage: React.FC = () => {
                                         </div>
                                     </div>
                                 )}
+                                <div>
+                                <h2 className="text-lg font-semibold text-white">Rate this movie:</h2>
+                                    <Stars rating={rating} onRatingChange={setRating} />
+                                </div>
                                 <div className="space-y-2 text-gray-300">
                                     <Label
                                         htmlFor="rewatches"
@@ -442,7 +448,7 @@ const JournalPage: React.FC = () => {
                                     />
 
                                     <motion.div
-                                        className={`absolute inset-0 bg-gradient-to-t from-black to-transparent flex flex-col justify-end p-4 transition-opacity duration-300 
+                                        className={`absolute inset-0 bg-gradient-to-t from-black to-transparent flex flex-col justify-end p-4 transition-opacity duration-300
                                 ${hoveredEntry === entry._id ? "opacity-100" : "opacity-100 md:opacity-0 group-hover:opacity-100"}`}
                                     >
                                         <h3 className="text-lg font-bold">
@@ -462,7 +468,7 @@ const JournalPage: React.FC = () => {
                                         {/* Delete button visible on hover for desktop, always visible on mobile */}
                                         <Button
                                             size="icon"
-                                            className="absolute top-2 right-2 bg-transparent pointer-events-auto 
+                                            className="absolute top-2 right-2 bg-transparent pointer-events-auto
                                     opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                                             onClick={(e) =>
                                                 handleOpenDeleteDialog(
