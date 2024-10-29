@@ -469,6 +469,9 @@ const JournalPage: React.FC = () => {
                                         <p className="text-sm text-gray-300">
                                             Times Watched: {entry.rewatches}
                                         </p>
+                                        <p className="text-sm text-gray-300">
+                                           Rating: {entry.rating}
+                                        </p>
 
                                         {/* Delete button visible on hover for desktop, always visible on mobile */}
                                         <Button
