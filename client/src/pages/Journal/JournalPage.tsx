@@ -83,7 +83,7 @@ const JournalPage: React.FC = () => {
 
     const handleAddEntry = async () => {
         if (!selectedMovie) {
-            toast.error("Please select a movie to add to the journal.") 
+            toast.error("Please select a movie to add to the journal.")
             return
         }
         if(!dateWatched) {
@@ -101,6 +101,7 @@ const JournalPage: React.FC = () => {
                     release_date: selectedMovie.release_date,
                     genre_ids: selectedMovie.genre_ids,
                 },
+                rating: rating ?? 0,
                 dateWatched,
                 rewatches,
             })
@@ -109,6 +110,7 @@ const JournalPage: React.FC = () => {
             setSelectedMovie(null)
             setDateWatched(new Date())
             setRewatches(1)
+            setRating(0)
             toast.success(
                 `"${selectedMovie.title}" has been added to your journal.`
             )
@@ -165,21 +167,21 @@ const JournalPage: React.FC = () => {
 
     const sortedEntries = useMemo(() => {
         if (!journalEntries) return [];
-    
+
         const selectedMonth = filterDate ? filterDate.getMonth() : null;
         const selectedYear = filterDate ? filterDate.getFullYear() : null;
-    
+
         const filteredEntries = journalEntries.filter(entry => {
             const watchedDate = new Date(entry.dateWatched);
             const entryMonth = watchedDate.getMonth();
             const entryYear = watchedDate.getFullYear();
-            
+
             return (
                 (selectedMonth === null || entryMonth === selectedMonth) &&
                 (selectedYear === null || entryYear === selectedYear)
             );
         });
-    
+
         const sorted = [...filteredEntries].sort(
             (a, b) =>
                 new Date(b.dateWatched).getTime() -
@@ -355,6 +357,9 @@ const JournalPage: React.FC = () => {
                                 <div>
                                 <h2 className="text-lg font-semibold text-white">Rate this movie:</h2>
                                     <Stars rating={rating} onRatingChange={setRating} />
+                                    <p className="mt-2 text-white">
+                                        Your Rating: {rating ? rating : 'Not rated yet'}
+                                    </p>
                                 </div>
                                 <div className="space-y-2 text-gray-300">
                                     <Label

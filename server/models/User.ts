@@ -8,6 +8,7 @@ export interface Journal {
     movie: MovieInList
     dateWatched: Date
     rewatches: number
+    rating: number
 }
 
 export interface List extends Document {
@@ -85,6 +86,7 @@ const journalSchema = new Schema<Journal>({
     movie: movieInListSchema,
     dateWatched: { type: Date, required: true },
     rewatches: { type: Number, default: 1 },
+    rating: { type: Number, default: 0 },
 })
 
 const friendRequestSchema = new Schema<FriendRequest>({
