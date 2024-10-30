@@ -36,11 +36,13 @@ interface AxiosError {
     message: string
 }
 const JournalPage: React.FC = () => {
-    const { useGetJournalEntries, useAddJournalEntry, useDeleteJournalEntry } =
+    const { useGetJournalEntries, useAddJournalEntry, useDeleteJournalEntry, useEditJournalEntry } =
         useJournal()
     const { data: journalEntries, isLoading } = useGetJournalEntries()
     const addJournalEntry = useAddJournalEntry()
     const deleteJournalEntry = useDeleteJournalEntry()
+    const editJournalEntry = useEditJournalEntry()
+
     const navigate = useNavigate()
     const [loading, setLoading] = useState(false)
 
@@ -54,6 +56,9 @@ const JournalPage: React.FC = () => {
 
     const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false)
     const [entryToDelete, setEntryToDelete] = useState<string | null>(null)
+    const [entryToEdit, setEntryToEdit] = useState<string | null>(null)
+    const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
+
     const [filterDate, setFilterDate] = useState<Date | undefined>(undefined)
 
     const handleDeleteEntry = async () => {
@@ -70,18 +75,23 @@ const JournalPage: React.FC = () => {
         }
     }
 
+    const handleEditEntry = async () => {
+        handleAddEntry();
+    }
+
     const handleOpenDeleteDialog = (
         entryId: string,
         event: React.MouseEvent
     ) => {
         event.stopPropagation() // Prevent the click from propagating to the parent div
         setEntryToDelete(entryId)
+        setEntryToEdit(entryId)
         setIsDeleteDialogOpen(true)
     }
 
     const handleAddEntry = async () => {
         if (!selectedMovie) {
-            toast.error("Please select a movie to add to the journal.") 
+            toast.error("Please select a movie to add to the journal.")
             return
         }
         if(!dateWatched) {
@@ -442,7 +452,7 @@ const JournalPage: React.FC = () => {
                                     />
 
                                     <motion.div
-                                        className={`absolute inset-0 bg-gradient-to-t from-black to-transparent flex flex-col justify-end p-4 transition-opacity duration-300 
+                                        className={`absolute inset-0 bg-gradient-to-t from-black to-transparent flex flex-col justify-end p-4 transition-opacity duration-300
                                 ${hoveredEntry === entry._id ? "opacity-100" : "opacity-100 md:opacity-0 group-hover:opacity-100"}`}
                                     >
                                         <h3 className="text-lg font-bold">
@@ -462,7 +472,7 @@ const JournalPage: React.FC = () => {
                                         {/* Delete button visible on hover for desktop, always visible on mobile */}
                                         <Button
                                             size="icon"
-                                            className="absolute top-2 right-2 bg-transparent pointer-events-auto 
+                                            className="absolute top-2 right-2 bg-transparent pointer-events-auto
                                     opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                                             onClick={(e) =>
                                                 handleOpenDeleteDialog(
@@ -499,25 +509,55 @@ const JournalPage: React.FC = () => {
             >
                 <DialogContent>
                     <DialogHeader>
-                        <DialogTitle>Delete Journal Entry</DialogTitle>
+                        <DialogTitle></DialogTitle>
                     </DialogHeader>
-                    <p>
-                        Are you sure you want to delete this journal entry? This
-                        action cannot be undone.
+                    <p className="text-white">
+                        Update Your Journal Entry
                     </p>
                     <DialogFooter>
                         <Button
                             variant="outline"
-                            onClick={() => setIsDeleteDialogOpen(false)}
-                        >
-                            Cancel
+                            className="text-white"
+                            onClick={() => {setIsDeleteDialogOpen(false); setIsEditDialogOpen(true);}}
+                        >Edit
                         </Button>
                         <Button
                             variant="outline"
-                            className="bg-white text-black"
+                            className="text-white"
+                            onClick={() => setIsDeleteDialogOpen(false)}
+                        >Cancel
+                        </Button>
+                        <Button
+                            variant="outline"
+                            className="bg-red-800 text-white"
                             onClick={handleDeleteEntry}
                         >
                             Delete
+                        </Button>
+                    </DialogFooter>
+                </DialogContent>
+            </Dialog>
+
+            <Dialog
+                open={isEditDialogOpen}
+                onOpenChange={setIsEditDialogOpen}
+            >
+                <DialogContent>
+                <p className="text-white">
+                    Edit Your Journal Entry
+                </p>
+                    <DialogFooter>
+                        <Button
+                            variant="outline"
+                            className="text-white"
+                            onClick={() => setIsEditDialogOpen(false)}
+                        >Cancel
+                        </Button>
+                        <Button
+                            variant="outline"
+                            className="bg-green-800 text-white"
+                            onClick={handleEditEntry}
+                        > Submit
                         </Button>
                     </DialogFooter>
                 </DialogContent>
