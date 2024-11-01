@@ -11,6 +11,7 @@ interface Journal {
     movie: SimpleMovie
     dateWatched: Date
     rewatches: number
+    rating: number
 }
 
 export function useJournal() {

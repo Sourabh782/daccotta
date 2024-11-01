@@ -5,7 +5,7 @@ import type { MovieInList } from "../models/movie"
 
 export const addJournalEntry = async (req: Request, res: Response) => {
     try {
-        const { movie, dateWatched, rewatches } = req.body;
+        const { movie, dateWatched, rewatches, rating } = req.body;
         const userId = req.user?.uid;
 
         console.log("userId is: ", userId);
@@ -46,6 +46,7 @@ export const addJournalEntry = async (req: Request, res: Response) => {
             movie: movieData,
             dateWatched: new Date(dateWatched),
             rewatches: rewatches || 1,
+            rating: rating
         };
 
         const updatedUser = await User.findByIdAndUpdate(
