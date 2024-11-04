@@ -71,6 +71,14 @@ export function useJournal() {
         return response.data
     }
 
+    const editJournalEntry = async (entry: Omit<Journal, "_id">) => {
+        const idToken = await getIdTokenFromUser()
+        const response = await axios.post(`${API_URL}/journal/edit`, entry, {
+            headers: { Authorization: `Bearer ${idToken}` },
+        })
+        return response.data
+    }
+
     return {
         useGetJournalEntries: () =>
             useQuery({
@@ -99,6 +107,14 @@ export function useJournal() {
         useDeleteJournalEntry: () =>
             useMutation({
                 mutationFn: deleteJournalEntry,
+                onSuccess: () =>
+                    queryClient.invalidateQueries({
+                        queryKey: ["journalEntries"],
+                    }),
+            }),
+        useEditJournalEntry: () =>
+            useMutation({
+                mutationFn: editJournalEntry,
                 onSuccess: () =>
                     queryClient.invalidateQueries({
                         queryKey: ["journalEntries"],
