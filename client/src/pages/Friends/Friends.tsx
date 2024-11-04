@@ -84,12 +84,7 @@ const FriendsSearch: React.FC = () => {
             onError: (error) => {
                 const axiosError = error as AxiosError;
                 const message: any = axiosError.response?.data;
-                if (message.message === "Friend request already sent") {
-                    toast.warn("Friend request already sent.");
-                } else {
-                    toast.error("Failed to send friend request. Please try again.");
-                }
-
+                toast.warn(message.message);
                 setFriendRequestStatus((prev) => ({
                     ...prev,
                     [friendUserName]: { loading: false, sent: false }
